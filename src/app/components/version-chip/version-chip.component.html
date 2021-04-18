@@ -1,0 +1,9 @@
+<mat-chip-list aria-label="Version label">
+  <mat-chip class="transparent">
+    <mat-icon aria-hidden="false"
+              aria-label="Icon"
+              *ngFor="let icon of data.icons"
+    >{{ icon }}</mat-icon>
+    <span class="text">{{ data.text }}</span>
+  </mat-chip>
+</mat-chip-list>

@@ -1,0 +1,10 @@
+<div class="wrapper">
+  <span class="mat-small by">By</span>
+  <img class="user-icon" [src]="authors[0].image">
+  <div class="mat-small heavier">{{ authors[0].name }}, ...</div>
+  <div class="counter-wrapper">
+    <div class="counter-icon">+{{ authors.length - 1 }}</div>
+  </div>
+  <img class="user-icon second-user" [src]="authors[1].image">
+  <div class="mat-small heavier">{{ authors[1].name }}</div>
+</div>

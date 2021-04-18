@@ -1,0 +1,128 @@
+@import '~@angular/material/theming';
+
+@include mat-core();
+
+// Background palette for light themes.
+$custom-light-theme-background: (
+  status-bar: map-get($mat-grey, 300),
+  app-bar:    map-get($mat-grey, 100),
+  background: var(--white),
+  hover:      rgba(black, 0.04),
+  card:       white,
+  dialog:     white,
+  disabled-button: rgba(black, 0.12),
+  raised-button: white,
+  focused-button: $dark-focused,
+  selected-button: map-get($mat-grey, 300),
+  selected-disabled-button: map-get($mat-grey, 400),
+  disabled-button-toggle: map-get($mat-grey, 200),
+  unselected-chip: map-get($mat-grey, 300),
+  disabled-list-option: map-get($mat-grey, 200),
+  tooltip: map-get($mat-grey, 700),
+);
+
+// Background palette for dark themes.
+$custom-dark-theme-background: (
+  status-bar: black,
+  app-bar:    map-get($mat-grey, 900),
+  background: var(--background-dark-theme),
+  hover:      rgba(white, 0.04),
+  card:       map-get($mat-grey, 800),
+  dialog:     map-get($mat-grey, 800),
+  disabled-button: rgba(white, 0.12),
+  raised-button: map-get($mat-grey, 800),
+  focused-button: $light-focused,
+  selected-button: map-get($mat-grey, 900),
+  selected-disabled-button: map-get($mat-grey, 800),
+  disabled-button-toggle: black,
+  unselected-chip: map-get($mat-grey, 700),
+  disabled-list-option: black,
+  tooltip: map-get($mat-grey, 700),
+);
+
+// Foreground palette for light themes.
+$custom-light-theme-foreground: (
+  base:              black,
+  divider:           $dark-dividers,
+  dividers:          $dark-dividers,
+  disabled:          $dark-disabled-text,
+  disabled-button:   rgba(black, 0.26),
+  disabled-text:     $dark-disabled-text,
+  elevation:         black,
+  hint-text:         $dark-disabled-text,
+  secondary-text:    $dark-secondary-text,
+  icon:              rgba(black, 0.54),
+  icons:             rgba(black, 0.54),
+  text:              rgba(black, 0.87),
+  slider-min:        rgba(black, 0.87),
+  slider-off:        rgba(black, 0.26),
+  slider-off-active: rgba(black, 0.38),
+);
+
+// Foreground palette for dark themes.
+$custom-dark-theme-foreground: (
+  base:              white,
+  divider:           $light-dividers,
+  dividers:          $light-dividers,
+  disabled:          $light-disabled-text,
+  disabled-button:   rgba(white, 0.3),
+  disabled-text:     $light-disabled-text,
+  elevation:         black,
+  hint-text:         $light-disabled-text,
+  secondary-text:    $light-secondary-text,
+  icon:              white,
+  icons:             white,
+  text:              white,
+  slider-min:        white,
+  slider-off:        rgba(white, 0.3),
+  slider-off-active: rgba(white, 0.3),
+);
+
+// Creates a light-themed color configuration from the specified
+// primary, accent and warn palettes.
+@function create-custom-light-theme($primary, $accent, $warn: null) {
+  @return (
+    primary: $primary,
+    accent: $accent,
+    warn: if($warn != null, $warn, mat-palette($mat-red)),
+    is-dark: false,
+    foreground: $custom-light-theme-foreground,
+    background: $custom-light-theme-background,
+  );
+}
+
+// Creates a dark-themed color configuration from the specified
+// primary, accent and warn palettes.
+@function create-custom-dark-theme($primary, $accent, $warn: null) {
+  @return (
+    primary: $primary,
+    accent: $accent,
+    warn: if($warn != null, $warn, mat-palette($mat-red)),
+    is-dark: true,
+    foreground: $custom-dark-theme-foreground,
+    background: $custom-dark-theme-background,
+  );
+}
+
+// --------------------------------------------------------------------------
+
+.light-theme {
+  $light-primary: mat-palette($mat-indigo);
+  $light-accent:  mat-palette($mat-pink, A200, A100, A400);
+
+  $light-theme: create-custom-light-theme($light-primary, $light-accent);
+
+  @include angular-material-theme($light-theme);
+}
+
+.dark-theme {
+  $dark-primary: mat-palette($mat-light-blue);
+  $dark-accent:  mat-palette($mat-yellow, 400);
+
+  $dark-theme: create-custom-dark-theme($dark-primary, $dark-accent);
+
+  @include angular-material-theme($dark-theme);
+
+  .mat-card { background-color: var(--background-dark-theme) }
+}
+

@@ -1,0 +1,18 @@
+.mat-mini-fab {
+  height: 2rem;
+  width: 2rem;
+  line-height: 2rem;
+  background-color: var(--light-grey) !important;
+  border: 1px solid transparent;
+
+  ::ng-deep.mat-button-wrapper { padding-top: 6px }
+
+  .mat-icon { font-size: 1.2rem }
+
+  &.active {
+    background-color: var(--background-blue) !important;
+    border: 1px solid var(--blue);
+
+    .mat-icon { color: var(--blue) }
+  }
+}

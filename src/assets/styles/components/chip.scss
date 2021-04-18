@@ -1,0 +1,23 @@
+@mixin style {
+  .mat-chip.mat-standard-chip {
+    font-weight: 300;
+  
+    &.green {
+      background-color: var(--background-green);
+      color: var(--success);
+    }
+  
+    &.blue {
+      background-color: var(--background-blue);
+      color: var(--blue);
+    }
+
+    &.transparent {
+      background-color: transparent;
+      border: 2px solid var(--light-grey);
+    }
+  }
+}
+
+.light-theme { @include style }
+.dark-theme { @include style }

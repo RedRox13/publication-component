@@ -1,0 +1,44 @@
+.wrapper {
+  display: flex;
+  align-items: center;
+
+  .by {
+    color: var(--gray);
+    margin-right: 0.5rem;
+  }
+
+  .heavier {
+    font-weight: 500;
+  }
+
+  .user-icon {
+    height: 24px;
+    width: 24px;
+    border-radius: 50%;
+    margin-right: 0.5rem;
+  }
+
+  .counter-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+
+    .counter-icon {
+      position: absolute;
+      margin-left: 0.5rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 10px;
+      height: 24px;
+      width: 24px;
+      border-radius: 50%;
+      color: var(--blue);
+      background-color: rgb(235,242,255);
+    }
+  }
+
+  .second-user {
+    margin-left: 24px;
+  }
+}

@@ -1,1 +1,16 @@
-/* You can add global styles to this file, and also import other style files */
+@import 'assets/styles/main.scss';
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Poppins, "Helvetica Arial", sans-serif; }
+
+:root {
+  --blue: #377dff;
+  --white: #fff;
+  --gray: #8c98a4;
+  --gray-dark: #343a40;
+  --success: #00c9a7;
+  --background-green: rgba(0,201,167,.1);
+  --background-blue: rgba(55,125,255,.1);
+  --light-grey: rgba(119,131,143,.1);
+  --background-dark-theme: rgba(43,63,89,255);
+}

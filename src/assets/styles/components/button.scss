@@ -1,0 +1,22 @@
+@mixin mat-flat-button {
+  .mat-flat-button {
+    &.blue {
+      background-color: var(--blue);
+      color: var(--white);
+    }
+  }
+}
+
+@mixin mat-mini-fab {
+  .mat-mini-fab { box-shadow: none !important }
+}
+
+.light-theme {
+  @include mat-flat-button;
+  @include mat-mini-fab;
+}
+
+.dark-theme {
+  @include mat-flat-button;
+  @include mat-mini-fab;
+}

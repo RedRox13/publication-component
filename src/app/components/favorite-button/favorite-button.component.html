@@ -1,0 +1,6 @@
+<button mat-mini-fab [ngClass]="{ 'active': isActive }" (click)="toggleActive()">
+  <mat-icon aria-label="Icon" *ngIf="isActive; else notActive">bookmark</mat-icon>
+  <ng-template #notActive>
+    <mat-icon aria-label="Icon">bookmark_border</mat-icon>
+  </ng-template>
+</button>

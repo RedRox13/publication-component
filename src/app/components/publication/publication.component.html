@@ -1,0 +1,53 @@
+<mat-card class="mat-app-background mat-elevation-z1"
+          *ngIf="isSmallScreen$ | async as isSmallScreen"
+          [ngClass]="{'small-screen': isSmallScreen.matches}"
+>
+  <div class="header">
+    <div class="left-side">
+      <app-type-chips [types]="data.types"></app-type-chips>
+    </div>
+    <div class="right-side">
+      <app-version-chip class="version-button"
+                        [data]="data.versionData"
+      ></app-version-chip>
+      <app-favorite-button></app-favorite-button>
+    </div>
+  </div>
+  <div class="category">
+    <div class="header">{{ data.categorySection.upperText }}</div>
+    <div class="link">
+      <mat-icon class="blue" aria-hidden="false" aria-label="Icon">forum</mat-icon>
+      {{ data.categorySection.lowerText }}
+    </div>
+  </div>
+  <div class="name mat-headline">{{ data.nameSection.text }}</div>
+  <div class="authors">
+    <div class="date mat-small">{{ data.authorsSection.date }}</div>
+    <span class="mat-small vertical-line">|</span>
+    <app-authors class="users" [authors]="data.authorsSection.users"></app-authors>
+  </div>
+  <div *ngIf="!shorten">
+    <div class="secondary-text mat-small">
+      {{ (data.secondarySection.text.length > 150)
+          ? (data.secondarySection.text | slice: 0:150)+'(...)'
+          : (data.secondarySection.text)
+      }}
+    </div>
+    <mat-divider class="divider"></mat-divider>
+    <div class="footer">
+      <div class="left-side">
+        <app-info-with-counter icon="chat"
+                               name="Comments"
+                               [counter]="data.comments.length"
+        ></app-info-with-counter>
+        <app-info-with-counter icon="remove_red_eye"
+                               name="Views"
+                               [counter]="data.views"
+        ></app-info-with-counter>
+      </div>
+      <div class="right-side">
+        <app-rectangular-button name="Read" color="blue"></app-rectangular-button>
+      </div>
+    </div>
+  </div>
+</mat-card>

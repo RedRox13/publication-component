@@ -1,0 +1,11 @@
+.light-theme .mat-icon {
+  color: var(--gray-dark);
+}
+
+.dark-theme .mat-icon {
+  color: var(--white);
+}
+
+.mat-icon.blue {
+  color: var(--blue);
+}
